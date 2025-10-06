@@ -17,10 +17,16 @@ public class GlobalTest {
 
     @Test
     void testAffichageBase() {
-        player player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200, new ArrayList<>());
-        UpdatePlayer.addXp(player, 20);
-        player.inventory = new ArrayList<>();
 
-        verify(Affichage.afficherJoueur(player));
+        ArrayList<String> inventory;
+        inventory = new ArrayList<>();
+        inventory.add("Sword");
+        inventory.add("Shield");
+        inventory.add("Potion");
+
+        player player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200,inventory );
+        UpdatePlayer.addXp(player, 20);
+        
+        System.out.println(Affichage.afficherJoueur(player));
     }
 }

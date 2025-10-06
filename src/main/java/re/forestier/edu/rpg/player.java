@@ -47,6 +47,7 @@ public class player {
     public void addMoney(int amount) {
         var value = Integer.valueOf(amount);
         money = money + (value != null ? value : 0);
+        //le value == null est un code mort!
     }
     public int retrieveLevel() {
         // (lvl-1) * 10 + round((lvl * xplvl-1)/4)

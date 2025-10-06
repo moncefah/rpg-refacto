@@ -1,9 +1,13 @@
 plugins {
+    id 'application'
     id 'java'
     id "jacoco"
     id 'info.solidsoft.pitest' version '1.7.4'
 }
-
+application {
+    // Tell Gradle which class has the main() method
+    mainClass = 're.forestier.edu.Main'
+}
 group = 're.forestier.edu'
 version = '1.0-SNAPSHOT'
 
