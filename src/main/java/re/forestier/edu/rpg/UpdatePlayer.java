@@ -99,6 +99,8 @@ public class UpdatePlayer {
     }
 
     public static boolean addXp(player player, int xp) {
+        //TODO : simplifie le get random object
+
         int currentLevel = player.retrieveLevel();
         player.xp += xp;
         int newLevel = player.retrieveLevel();
@@ -111,10 +113,7 @@ public class UpdatePlayer {
             player.inventory.add(pickRandomObject());
 
             // Add/upgrade abilities to player
-            HashMap<String, Integer> abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);
-            abilities.forEach((ability, level) -> {
-                player.abilities.put(ability, abilities.get(ability));
-            });
+            updatePlayerAbilities(player, newLevel);
             return true;
         }
         return false;
@@ -167,5 +166,13 @@ public class UpdatePlayer {
         Random random = new Random();
         int randomNumber = random.nextInt(objectList.length);
         return objectList[randomNumber];
+    }
+
+    private static void updatePlayerAbilities(player player, int newLevel ){
+        HashMap<String, Integer> abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);
+        abilities.forEach((ability, level) -> {
+            player.abilities.put(ability, abilities.get(ability));
+        });
+        
     }
 }
