@@ -123,41 +123,29 @@ public class UpdatePlayer {
             gererJouereKO(player);
             return;
         }
-
         if(player.currenthealthpoints < player.healthpoints/2) {
-            if(!player.getAvatarClass().equals("ADVENTURER")) {
-                if(player.getAvatarClass().equals("DWARF")) {
-                    if(player.inventory.contains("Holy Elixir")) {
-                        player.currenthealthpoints+=1;
-                    }
-                    player.currenthealthpoints+=1;
-                } else if(player.getAvatarClass().equals("ADVENTURER")) {
-                    player.currenthealthpoints+=2;
-                }
-
-
-                if(player.getAvatarClass().equals("ARCHER")) {
-                    player.currenthealthpoints+=1;
-                    if(player.inventory.contains("Magic Bow")) {
-                        player.currenthealthpoints+=player.currenthealthpoints/8-1;
-                    }
-                }
-            } else {
-                player.currenthealthpoints+=2;
-                if(player.retrieveLevel() < 3) {
-                    player.currenthealthpoints-=1;
-                }
-            }
-        } else if(player.currenthealthpoints >= player.healthpoints/2){
-            if(player.currenthealthpoints >= player.healthpoints) {
-                player.currenthealthpoints = player.healthpoints;
-                return;
-            }
+            appliquerSoinsSelonClasse(player);
         }
+            restorerViePlayer(player);
+
+    }
 
 
-        if(player.currenthealthpoints >= player.healthpoints) {
-            player.currenthealthpoints = player.healthpoints;
+
+    private static void appliquerSoinsSelonClasse(player player) {
+        switch (player.getAvatarClass()) {
+            case "DWARF":
+                soignerDwarf(player);
+                break;
+            case "ARCHER":
+                soignerArcher(player);
+                break;
+            case "ADVENTURER":
+                soignerAdventurer(player);
+                break;
+            default:
+                System.out.println("Classe inconnue !");
+                break;
         }
     }
 
@@ -177,5 +165,26 @@ public class UpdatePlayer {
             player.abilities.put(ability, abilities.get(ability));
         });
 
+    }
+    private static void soignerAdventurer(player player){
+        player.currenthealthpoints+=2;
+        if(player.retrieveLevel() < 3) {
+            player.currenthealthpoints-=1;
+        }
+    }
+    private static void soignerDwarf(player player){
+        if(player.inventory.contains("Holy Elixir")) {
+            player.currenthealthpoints+=1;
+        }
+        player.currenthealthpoints+=1;
+    }
+    private static void soignerArcher(player player){
+        player.currenthealthpoints+=1;
+        if(player.inventory.contains("Magic Bow")) {
+            player.currenthealthpoints+=player.currenthealthpoints/8-1;
+        }
+    }
+    private static void restorerViePlayer(player player) {
+        player.currenthealthpoints = Math.min(player.currenthealthpoints, player.healthpoints);
     }
 }
