@@ -109,9 +109,7 @@ public class UpdatePlayer {
             // Player leveled-up!
             // Give a random object
             ;
-
             player.inventory.add(pickRandomObject());
-
             // Add/upgrade abilities to player
             updatePlayerAbilities(player, newLevel);
             return true;
@@ -122,7 +120,7 @@ public class UpdatePlayer {
     // majFinDeTour met à jour les points de vie
     public static void majFinDeTour(player player) {
         if(player.currenthealthpoints == 0) {
-            System.out.println("Le joueur est KO !");
+            gererJouereKO(player);
             return;
         }
 
@@ -162,6 +160,11 @@ public class UpdatePlayer {
             player.currenthealthpoints = player.healthpoints;
         }
     }
+
+    private static void gererJouereKO(player player) {
+        System.out.println("Le joueur est KO !");
+    }
+
     private static String pickRandomObject(){
         Random random = new Random();
         int randomNumber = random.nextInt(objectList.length);
@@ -173,6 +176,6 @@ public class UpdatePlayer {
         abilities.forEach((ability, level) -> {
             player.abilities.put(ability, abilities.get(ability));
         });
-        
+
     }
 }
