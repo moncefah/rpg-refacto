@@ -172,19 +172,19 @@ public class UpdatePlayer {
             player.currenthealthpoints-=1;
         }
     }
-    private static void soignerDwarf(player player){
+     static void soignerDwarf(player player){
         if(player.inventory.contains("Holy Elixir")) {
             player.currenthealthpoints+=1;
         }
         player.currenthealthpoints+=1;
     }
-    private static void soignerArcher(player player){
+     static void soignerArcher(player player){
         player.currenthealthpoints+=1;
         if(player.inventory.contains("Magic Bow")) {
             player.currenthealthpoints+=player.currenthealthpoints/8-1;
         }
     }
-    private static void restorerViePlayer(player player) {
+     static void restorerViePlayer(player player) {
         player.currenthealthpoints = Math.min(player.currenthealthpoints, player.healthpoints);
     }
 }
