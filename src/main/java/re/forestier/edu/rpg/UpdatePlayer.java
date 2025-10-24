@@ -98,7 +98,7 @@ public class UpdatePlayer {
         return abilitiesPerTypeAndLevel;
     }
 
-    public static boolean addXp(player player, int xp) {
+    public static boolean addXp(Player player, int xp) {
         //TODO : simplifie le get random object
 
         int currentLevel = player.retrieveLevel();
@@ -118,7 +118,7 @@ public class UpdatePlayer {
     }
 
     // majFinDeTour met à jour les points de vie
-    public static void majFinDeTour(player player) {
+    public static void majFinDeTour(Player player) {
         if(player.currenthealthpoints == 0) {
             gererJouereKO(player);
             return;
@@ -132,7 +132,7 @@ public class UpdatePlayer {
 
 
 
-    private static void appliquerSoinsSelonClasse(player player) {
+    private static void appliquerSoinsSelonClasse(Player player) {
         switch (player.getAvatarClass()) {
             case "DWARF":
                 soignerDwarf(player);
@@ -149,7 +149,7 @@ public class UpdatePlayer {
         }
     }
 
-    private static void gererJouereKO(player player) {
+    private static void gererJouereKO(Player player) {
         System.out.println("Le joueur est KO !");
     }
 
@@ -159,32 +159,32 @@ public class UpdatePlayer {
         return objectList[randomNumber];
     }
 
-    private static void updatePlayerAbilities(player player, int newLevel ){
+    private static void updatePlayerAbilities(Player player, int newLevel ){
         HashMap<String, Integer> abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);
         abilities.forEach((ability, level) -> {
             player.abilities.put(ability, abilities.get(ability));
         });
 
     }
-    private static void soignerAdventurer(player player){
+    private static void soignerAdventurer(Player player){
         player.currenthealthpoints+=2;
         if(player.retrieveLevel() < 3) {
             player.currenthealthpoints-=1;
         }
     }
-     static void soignerDwarf(player player){
+     static void soignerDwarf(Player player){
         if(player.inventory.contains("Holy Elixir")) {
             player.currenthealthpoints+=1;
         }
         player.currenthealthpoints+=1;
     }
-     static void soignerArcher(player player){
+     static void soignerArcher(Player player){
         player.currenthealthpoints+=1;
         if(player.inventory.contains("Magic Bow")) {
             player.currenthealthpoints+=player.currenthealthpoints/8-1;
         }
     }
-     static void restorerViePlayer(player player) {
+     static void restorerViePlayer(Player player) {
         player.currenthealthpoints = Math.min(player.currenthealthpoints, player.healthpoints);
     }
 }

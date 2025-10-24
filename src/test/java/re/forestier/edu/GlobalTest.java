@@ -1,10 +1,9 @@
 package re.forestier.edu;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import re.forestier.edu.rpg.Affichage;
 import re.forestier.edu.rpg.UpdatePlayer;
-import re.forestier.edu.rpg.player;
+import re.forestier.edu.rpg.Player;
 
 import java.util.ArrayList;
 
@@ -24,7 +23,7 @@ public class GlobalTest {
         inventory.add("Shield");
         inventory.add("Potion");
 
-        player player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200,inventory );
+        Player player = new Player("Florian", "Gnognak le Barbare", "ADVENTURER", 200,inventory );
         UpdatePlayer.addXp(player, 20);
         
         System.out.println(Affichage.afficherJoueur(player));
