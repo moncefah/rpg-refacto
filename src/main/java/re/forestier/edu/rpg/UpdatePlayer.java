@@ -3,6 +3,8 @@ package re.forestier.edu.rpg;
 import java.util.HashMap;
 import java.util.Random;
 
+import re.forestier.edu.rpg.Utilities;
+
 public class UpdatePlayer {
 
     private final static String[] objectList = {"Lookout Ring : Prevents surprise attacks","Scroll of Stupidity : INT-2 when applied to an enemy", "Draupnir : Increases XP gained by 100%", "Magic Charm : Magic +10 for 5 rounds", "Rune Staff of Curse : May burn your ennemies... Or yourself. Who knows?", "Combat Edge : Well, that's an edge", "Holy Elixir : Recover your HP"
@@ -99,7 +101,6 @@ public class UpdatePlayer {
     }
 
     public static boolean addXp(Player player, int xp) {
-        //TODO : simplifie le get random object
 
         int currentLevel = player.retrieveLevel();
         player.xp += xp;
@@ -109,7 +110,7 @@ public class UpdatePlayer {
             // Player leveled-up!
             // Give a random object
             ;
-            player.inventory.add(pickRandomObject());
+            player.inventory.add(Utilities.pickRandomObject(objectList));
             // Add/upgrade abilities to player
             updatePlayerAbilities(player, newLevel);
             return true;
@@ -126,7 +127,7 @@ public class UpdatePlayer {
         if(player.currenthealthpoints < player.healthpoints/2) {
             appliquerSoinsSelonClasse(player);
         }
-            restorerViePlayer(player);
+            Utilities.restorerViePlayer(player);
 
     }
 
@@ -135,13 +136,13 @@ public class UpdatePlayer {
     private static void appliquerSoinsSelonClasse(Player player) {
         switch (player.getAvatarClass()) {
             case "DWARF":
-                soignerDwarf(player);
+                Utilities.soignerDwarf(player);
                 break;
             case "ARCHER":
-                soignerArcher(player);
+                Utilities.soignerArcher(player);
                 break;
             case "ADVENTURER":
-                soignerAdventurer(player);
+                Utilities.soignerAdventurer(player);
                 break;
             default:
                 System.out.println("Classe inconnue !");
@@ -153,11 +154,7 @@ public class UpdatePlayer {
         System.out.println("Le joueur est KO !");
     }
 
-    private static String pickRandomObject(){
-        Random random = new Random();
-        int randomNumber = random.nextInt(objectList.length);
-        return objectList[randomNumber];
-    }
+
 
     private static void updatePlayerAbilities(Player player, int newLevel ){
         HashMap<String, Integer> abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);
@@ -166,25 +163,5 @@ public class UpdatePlayer {
         });
 
     }
-    private static void soignerAdventurer(Player player){
-        player.currenthealthpoints+=2;
-        if(player.retrieveLevel() < 3) {
-            player.currenthealthpoints-=1;
-        }
-    }
-     static void soignerDwarf(Player player){
-        if(player.inventory.contains("Holy Elixir")) {
-            player.currenthealthpoints+=1;
-        }
-        player.currenthealthpoints+=1;
-    }
-     static void soignerArcher(Player player){
-        player.currenthealthpoints+=1;
-        if(player.inventory.contains("Magic Bow")) {
-            player.currenthealthpoints+=player.currenthealthpoints/8-1;
-        }
-    }
-     static void restorerViePlayer(Player player) {
-        player.currenthealthpoints = Math.min(player.currenthealthpoints, player.healthpoints);
-    }
+
 }
