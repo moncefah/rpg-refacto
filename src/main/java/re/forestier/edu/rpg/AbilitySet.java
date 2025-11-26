@@ -1,29 +1,21 @@
 package re.forestier.edu.rpg;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import re.forestier.edu.rpg.Ability;
 
-public class AbilitySet {
-    private final Map<String, Integer> abilities = new HashMap<>();
-    public AbilitySet add(String abilityName, int value) {
-        abilities.put(abilityName, value);
-        return this;
-        //pour chainer les .add()
-    }
-    public Map<String, Integer> getAbilities() {
-        return new HashMap<>(abilities);
-    }
-    public int getValue(String abilityName) {
-        return abilities.getOrDefault(abilityName, 0);
-    }
+import javax.swing.*;
 
-    public boolean hasAbility(String abilityName) {
-        return abilities.containsKey(abilityName);
-    }
+public class AbilitySet  extends HashMap <String, Integer> {
+        private void setAbility(Ability ability){
+                this.put(ability.getStat(), ability.getValue());
+        }
+        private void setAbility(List<Ability> listAbility){
+                for (Ability ability : listAbility){
+                        this.put(ability.getStat(), ability.getValue());
 
-    // Factory methods pour création rapide
-    public static AbilitySet create() {
-        return new AbilitySet();
-    }
+                }
+        }
 
 }
