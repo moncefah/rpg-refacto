@@ -1,4 +1,14 @@
 package re.forestier.edu.rpg;
 
-public abstract class CharacterClass {
+import java.util.List;
+
+public  class CharacterClass {
+     protected CharacterProgression progression;
+
+
+     static CharacterProgression initClassLevels(){
+          return null;
+     };
+
+
 }
