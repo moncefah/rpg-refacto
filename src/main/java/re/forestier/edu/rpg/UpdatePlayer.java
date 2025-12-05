@@ -5,6 +5,7 @@ import java.util.Random;
 
 import re.forestier.edu.rpg.CharacterTypes.Adventurer;
 import re.forestier.edu.rpg.CharacterTypes.Archer;
+import re.forestier.edu.rpg.CharacterTypes.Dwarf;
 import re.forestier.edu.rpg.Utilities;
 import re.forestier.edu.rpg.CharacterTypes.Adventurer;
 
@@ -25,7 +26,7 @@ public class UpdatePlayer {
         abilitiesPerTypeAndLevel.put("ARCHER", archerMap);
 
 
-        CharacterProgression dwarfMap = Archer.initClassLevels();
+        CharacterProgression dwarfMap = Dwarf.initClassLevels();
         abilitiesPerTypeAndLevel.put("DWARF", dwarfMap);
 
         return abilitiesPerTypeAndLevel;
