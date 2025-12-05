@@ -17,8 +17,8 @@ public class Adventurer extends CharacterClass {
         adventurerMap.put(1, adventurerLevel1);
 
         AbilitySet adventurerLevel2 = new AbilitySet();
-        adventurerLevel1.put("INT", 2);
-        adventurerLevel1.put("CHA", 3);
+        adventurerLevel2.put("INT", 2);
+        adventurerLevel2.put("CHA", 3);
         adventurerMap.put(2, adventurerLevel2);
 
         AbilitySet adventurerLevel3 = new AbilitySet();
