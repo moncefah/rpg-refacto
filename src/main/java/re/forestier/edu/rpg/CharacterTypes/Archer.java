@@ -2,6 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 import re.forestier.edu.rpg.AbilitySet;
 import re.forestier.edu.rpg.CharacterClass;
 import re.forestier.edu.rpg.CharacterProgression;
+import re.forestier.edu.rpg.Player;
 
 public class Archer extends CharacterClass {
 
@@ -41,6 +42,14 @@ public class Archer extends CharacterClass {
 
 
     };
+    @Override
+    public void soigner(Player player){
+        player.currenthealthpoints+=1;
+        if(player.inventory.contains("Magic Bow")) {
+            player.currenthealthpoints+=player.currenthealthpoints/8-1;
+        }
+
+    }
 
 
 

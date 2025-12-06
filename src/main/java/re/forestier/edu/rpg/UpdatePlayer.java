@@ -55,20 +55,12 @@ public class UpdatePlayer {
 
 
     private static void appliquerSoinsSelonClasse(Player player) {
-        switch (player.getAvatarClass()) {
-            case "DWARF":
-                Utilities.soignerDwarf(player);
-                break;
-            case "ARCHER":
-                Utilities.soignerArcher(player);
-                break;
-            case "ADVENTURER":
-                Utilities.soignerAdventurer(player);
-                break;
-            default:
-                System.out.println("Classe inconnue !");
-                break;
-        }
+
+        CharacterClass playerClass = CharacterFactory.create(player.getAvatarClass());
+
+            playerClass.soigner(player);
+
+
     }
 
     private static void gererJouereKO(Player player) {

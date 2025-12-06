@@ -2,6 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 import re.forestier.edu.rpg.AbilitySet;
 import re.forestier.edu.rpg.CharacterClass;
 import re.forestier.edu.rpg.CharacterProgression;
+import re.forestier.edu.rpg.Player;
 
 public class Dwarf extends CharacterClass {
 
@@ -40,7 +41,13 @@ public class Dwarf extends CharacterClass {
 
 
     };
-
+    @Override
+    public void soigner(Player player) {
+        if (player.inventory.contains("Holy Elixir")) {
+            player.currenthealthpoints += 1;
+        }
+        player.currenthealthpoints += 1;
+    }
 
 
 }

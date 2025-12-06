@@ -6,6 +6,7 @@ public abstract   class CharacterClass {
      protected CharacterProgression progression;
 
      protected abstract CharacterProgression getProgression();
+     protected abstract void soigner (Player player);
 
 
 

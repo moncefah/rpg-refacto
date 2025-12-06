@@ -2,6 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 import re.forestier.edu.rpg.AbilitySet;
 import re.forestier.edu.rpg.CharacterClass;
 import re.forestier.edu.rpg.CharacterProgression;
+import re.forestier.edu.rpg.Player;
 
 public class Adventurer extends CharacterClass {
 
@@ -42,6 +43,13 @@ public class Adventurer extends CharacterClass {
 
 
     };
+  @Override
+  public void soigner(Player player) {
+    player.currenthealthpoints += 2;
+    if (player.retrieveLevel() < 3) {
+      player.currenthealthpoints -= 1;
+    }
+  }
 
 
 

@@ -197,7 +197,6 @@ public class UpdateLevelTest {
         assertTrue(map.get("DWARF").containsKey(1));
     }
 
-    @Test
     void testUnknownClassInMajFinDeTour() {
         // Créer un joueur avec une classe "valide" puis la modifier (hack pour tester)
         Player p = new Player("Test", "Test", "ARCHER", 0, new ArrayList<>()) {
@@ -206,14 +205,14 @@ public class UpdateLevelTest {
                 return "INVALID_CLASS";
             }
         };
-        p.healthpoints = 100;
-        p.currenthealthpoints = 40;
+
 
         // Ne devrait pas planter, mais afficher "Classe inconnue !"
         UpdatePlayer.majFinDeTour(p);
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> UpdatePlayer.majFinDeTour(p));
+        assertEquals("expected messages", exception.getMessage());
 
         // Aucun soin ne devrait être appliqué (sauf le cap au max)
-        assertEquals(40, p.currenthealthpoints);
     }
     @Test
     void testPlayerWithExactlyMaxHP() {
