@@ -5,8 +5,11 @@ import re.forestier.edu.rpg.CharacterProgression;
 
 public class Archer extends CharacterClass {
 
+    public Archer() {
+    }
 
-    public static CharacterProgression initClassLevels(){
+    @Override
+    protected CharacterProgression getProgression(){
 
         CharacterProgression archerMap = new  CharacterProgression();
         AbilitySet archerLevel1 = new AbilitySet();

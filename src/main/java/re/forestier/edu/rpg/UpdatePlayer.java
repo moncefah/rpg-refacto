@@ -14,24 +14,13 @@ public class UpdatePlayer {
     private final static String[] objectList = {"Lookout Ring : Prevents surprise attacks","Scroll of Stupidity : INT-2 when applied to an enemy", "Draupnir : Increases XP gained by 100%", "Magic Charm : Magic +10 for 5 rounds", "Rune Staff of Curse : May burn your ennemies... Or yourself. Who knows?", "Combat Edge : Well, that's an edge", "Holy Elixir : Recover your HP"
     };
 
-    public static HashMap<String,CharacterProgression> abilitiesPerTypeAndLevel() {
-        HashMap<String, CharacterProgression> abilitiesPerTypeAndLevel = new HashMap<>();
-
-
-
-        CharacterProgression adventurerMap = Adventurer.initClassLevels();
-        abilitiesPerTypeAndLevel.put("ADVENTURER", adventurerMap);
-
-        CharacterProgression archerMap = Archer.initClassLevels();
-        abilitiesPerTypeAndLevel.put("ARCHER", archerMap);
-
-
-        CharacterProgression dwarfMap = Dwarf.initClassLevels();
-        abilitiesPerTypeAndLevel.put("DWARF", dwarfMap);
-
-        return abilitiesPerTypeAndLevel;
+    public static HashMap<String, CharacterProgression> abilitiesPerTypeAndLevel() {
+        HashMap<String, CharacterProgression> map = new HashMap<>();
+        map.put("ARCHER", CharacterFactory.create("ARCHER").getProgression());
+        map.put("ADVENTURER", CharacterFactory.create("ARCHER").getProgression());
+        map.put("DWARF", CharacterFactory.create("DWARF").getProgression());
+        return map;
     }
-
     public static boolean addXp(Player player, int xp) {
 
         int currentLevel = player.retrieveLevel();

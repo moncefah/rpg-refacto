@@ -5,8 +5,11 @@ import re.forestier.edu.rpg.CharacterProgression;
 
 public class Dwarf extends CharacterClass {
 
+    public Dwarf() {
+    }
 
-    public static CharacterProgression initClassLevels(){
+    @Override
+    protected  CharacterProgression getProgression(){
 
         CharacterProgression dwarfMap = new CharacterProgression();
 
