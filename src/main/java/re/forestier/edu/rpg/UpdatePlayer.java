@@ -17,7 +17,7 @@ public class UpdatePlayer {
     public static HashMap<String, CharacterProgression> abilitiesPerTypeAndLevel() {
         HashMap<String, CharacterProgression> map = new HashMap<>();
         map.put("ARCHER", CharacterFactory.create("ARCHER").getProgression());
-        map.put("ADVENTURER", CharacterFactory.create("ARCHER").getProgression());
+        map.put("ADVENTURER", CharacterFactory.create("ADVENTURER").getProgression());
         map.put("DWARF", CharacterFactory.create("DWARF").getProgression());
         return map;
     }
