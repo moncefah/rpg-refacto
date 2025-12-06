@@ -1,7 +1,10 @@
 package re.forestier.edu.rpg;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Player {
     public String playerName;
@@ -11,6 +14,7 @@ public class Player {
     public Integer money;
     private Float __real_money__;
 
+    private static final Map<Integer, Integer> LEVEL_XP = generateLevelsXP(100);
 
     public int level;
     public int healthpoints;
@@ -49,31 +53,50 @@ public class Player {
         money = money + (value != null ? value : 0);
         //le value == null est un code mort!
     }
-    public int retrieveLevel() {
-        // (lvl-1) * 10 + round((lvl * xplvl-1)/4)
-        HashMap<Integer, Integer> levels = new HashMap<>();
-        levels.put(2,10); // 1*10 + ((2*0)/4)
-        levels.put(3,27); // 2*10 + ((3*10)/4)
-        levels.put(4,57); // 3*10 + ((4*27)/4)
-        levels.put(5,111); // 4*10 + ((5*57)/4)
-        //TODO : ajouter les prochains niveaux
 
-        if (xp < levels.get(2)) {
-            return 1;
-        }
-        else if (xp < levels.get(3)) {return 2;
-        }
-        if (xp < levels.get(4)) {
-            return 3;
-        }
-        if (xp < levels.get(5)) return 4;
-        return 5;
+   public static HashMap<Integer, Integer> generateLevelsXP(int maxLevel) {
+        HashMap<Integer, Integer> levels = new HashMap<>();
+
+        // xp threshold for level 2
+        int previousXp = 0; 
+
+        for (int lvl = 2; lvl <= maxLevel; lvl++) {
+            int xp = (lvl - 1) * 10 + Math.round((lvl * previousXp) / 4f);
+            levels.put(lvl, xp);
+            previousXp = xp;
     }
+
+    return levels;
+}
+
+   public int retrieveLevel() {
+        List<Integer> sortedLevels = new ArrayList<>(LEVEL_XP.keySet());
+        Collections.sort(sortedLevels);
+
+        int lastLevel = 1;
+
+        for (int lvl : sortedLevels) {
+            int threshold = LEVEL_XP.get(lvl);
+
+            if (xp < threshold) {
+                return lvl - 1;
+            }
+
+            lastLevel = lvl;
+        }
+
+        return lastLevel;
+    }
+
 
     public int getXp() {
         return this.xp;
     }
 
+    public void setXp( int xp ) {
+        this.xp=xp;
+       
+    }
     /*
     Ингредиенты:
         Для теста:

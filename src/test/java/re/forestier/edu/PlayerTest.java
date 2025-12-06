@@ -1,11 +1,14 @@
-package re.forestier.edu.rpg;
+package re.forestier.edu;
 
 import org.junit.jupiter.api.Test;
+
+import re.forestier.edu.rpg.Player;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 public class PlayerTest {
+    
      @Test
     void testValidConstructor() {
         var inv = new ArrayList<String>();
@@ -51,18 +54,18 @@ public class PlayerTest {
     void testRetrieveLevel() {
         Player p = new Player("John", "Avatar1", "ARCHER", 0, new ArrayList<>());
 
-        p.xp = 0;  assertEquals(1, p.retrieveLevel());
-        p.xp = 15; assertEquals(2, p.retrieveLevel());
-        p.xp = 30; assertEquals(3, p.retrieveLevel());
-        p.xp = 60; assertEquals(4, p.retrieveLevel());
-        p.xp = 120; assertEquals(5, p.retrieveLevel());
+        p.setXp(0);  assertEquals(1, p.retrieveLevel());
+        p.setXp(15); assertEquals(2, p.retrieveLevel());
+        p.setXp(30); assertEquals(3, p.retrieveLevel());
+        p.setXp(60); assertEquals(4, p.retrieveLevel());
+        p.setXp(120); assertEquals(5, p.retrieveLevel());
     }
 
     @Test
     void testGetXp() {
         Player p = new Player("John", "Avatar1", "DWARF", 0, new ArrayList<>());
         assertEquals(0, p.getXp());
-        p.xp = 42;
+        p.setXp(42);
         assertEquals(42, p.getXp());
     }
 }
