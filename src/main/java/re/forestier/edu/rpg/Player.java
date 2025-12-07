@@ -19,8 +19,9 @@ public class Player {
 
 
     public HashMap<String, Integer> abilities;
-    public ArrayList<String> inventory;
-    public Player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<String> inventory) {
+    public ArrayList<Item> inventory;
+    public int maxWeight = 20;
+    public Player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<Item> inventory) {
         if (!avatarClass.equals("ARCHER") && !avatarClass.equals("ADVENTURER") && !avatarClass.equals("DWARF")&& !avatarClass.equals("GOBLIN"))  {
             return;
         }
