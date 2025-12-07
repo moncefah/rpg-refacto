@@ -1,7 +1,7 @@
 package re.forestier.edu.rpg.CharacterTypes;
-import re.forestier.edu.rpg.AbilitySet;
-import re.forestier.edu.rpg.CharacterClass;
-import re.forestier.edu.rpg.CharacterProgression;
+import re.forestier.edu.rpg.Character.AbilitySet;
+import re.forestier.edu.rpg.Character.CharacterClass;
+import re.forestier.edu.rpg.Character.CharacterProgression;
 import re.forestier.edu.rpg.Player;
 
 public class Adventurer extends CharacterClass {
@@ -10,7 +10,7 @@ public class Adventurer extends CharacterClass {
   }
 
   @Override
-      protected CharacterProgression getProgression(){
+      public CharacterProgression getProgression(){
 
         CharacterProgression adventurerMap = new CharacterProgression();
         AbilitySet adventurerLevel1 = new AbilitySet();

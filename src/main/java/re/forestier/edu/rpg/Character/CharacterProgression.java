@@ -1,7 +1,8 @@
-package re.forestier.edu.rpg;
+package re.forestier.edu.rpg.Character;
+
+import re.forestier.edu.rpg.Character.AbilitySet;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class CharacterProgression extends HashMap<Integer, AbilitySet> {
 }

@@ -1,11 +1,7 @@
-package re.forestier.edu.rpg;
+package re.forestier.edu.rpg.Character;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import re.forestier.edu.rpg.Ability;
-
-import javax.swing.*;
 
 public class AbilitySet  extends HashMap <String, Integer> {
         private void setAbility(Ability ability){

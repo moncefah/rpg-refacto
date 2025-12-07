@@ -1,5 +1,6 @@
-package re.forestier.edu.rpg;
+package re.forestier.edu.rpg.Character;
 
+import re.forestier.edu.rpg.Character.CharacterClass;
 import re.forestier.edu.rpg.CharacterTypes.*;
 
 public class CharacterFactory {

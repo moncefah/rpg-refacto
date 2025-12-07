@@ -1,5 +1,5 @@
-package re.forestier.edu.rpg;
-import re.forestier.edu.rpg.Stats;
+package re.forestier.edu.rpg.Character;
+
 public class Ability {
     private final String stat;  // "INT", "DEF", "ATK"...
     private final int value;    // 1, 2, 3...

@@ -1,13 +1,11 @@
 package re.forestier.edu.rpg;
 
-import java.util.HashMap;
-import java.util.Random;
+import re.forestier.edu.rpg.Character.CharacterClass;
+import re.forestier.edu.rpg.Character.CharacterFactory;
+import re.forestier.edu.rpg.Character.CharacterProgression;
 
-import re.forestier.edu.rpg.CharacterTypes.Adventurer;
-import re.forestier.edu.rpg.CharacterTypes.Archer;
-import re.forestier.edu.rpg.CharacterTypes.Dwarf;
-import re.forestier.edu.rpg.Utilities;
-import re.forestier.edu.rpg.CharacterTypes.Adventurer;
+import java.util.HashMap;
+
 
 public class UpdatePlayer {
 
@@ -28,9 +26,6 @@ public class UpdatePlayer {
         int newLevel = player.retrieveLevel();
 
         if (newLevel != currentLevel) {
-            // Player leveled-up!
-            // Give a random object
-            ;
             player.inventory.add(Utilities.pickRandomObject(objectList));
             // Add/upgrade abilities to player
             updatePlayerAbilities(player, newLevel);
@@ -57,10 +52,7 @@ public class UpdatePlayer {
     private static void appliquerSoinsSelonClasse(Player player) {
 
         CharacterClass playerClass = CharacterFactory.create(player.getAvatarClass());
-
-            playerClass.soigner(player);
-
-
+        playerClass.soigner(player);
     }
 
     private static void gererJouereKO(Player player) {

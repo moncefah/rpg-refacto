@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
-import re.forestier.edu.rpg.CharacterProgression;
+import re.forestier.edu.rpg.Character.CharacterProgression;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 
