@@ -13,8 +13,8 @@ public class CharacterFactory {
                 return new Adventurer();
             case "DWARF":
                 return new Dwarf();
-            /*case "GOBLIN":
-                return new Goblin();*/
+            case "GOBLIN":
+                return new Goblin();
             default:
                 throw new IllegalArgumentException("Classe inconnue : " + className);
         }

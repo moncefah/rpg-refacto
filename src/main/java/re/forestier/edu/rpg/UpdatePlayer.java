@@ -17,6 +17,7 @@ public class UpdatePlayer {
         map.put("ARCHER", CharacterFactory.create("ARCHER").getProgression());
         map.put("ADVENTURER", CharacterFactory.create("ADVENTURER").getProgression());
         map.put("DWARF", CharacterFactory.create("DWARF").getProgression());
+        map.put("GOBLIN", CharacterFactory.create("GOBLIN").getProgression());
         return map;
     }
     public static boolean addXp(Player player, int xp) {
