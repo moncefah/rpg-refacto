@@ -4,11 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PlayerTest {
      @Test
     void testValidConstructor() {
-        var inv = new ArrayList<String>();
+        var inv = new ArrayList<Item>();
         Player p = new Player("John", "Avatar1", "ARCHER", 100, inv);
         assertEquals("ARCHER", p.getAvatarClass());
         assertEquals(100, p.money);
@@ -16,7 +17,7 @@ public class PlayerTest {
 
     @Test
     void testInvalidConstructor() {
-        var inv = new ArrayList<String>();
+        var inv = new ArrayList<Item>();
         Player p = new Player("Jane", "Avatar2", "MAGE", 50, inv);
         // Ici, le constructeur "return" sans set → AvatarClass reste null
         assertNull(p.getAvatarClass());

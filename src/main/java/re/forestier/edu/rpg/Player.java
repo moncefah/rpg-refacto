@@ -75,6 +75,34 @@ public class Player {
         return this.xp;
     }
 
+    public boolean hasItem(Item item ){
+        //TODO : complete the hasItem method , try to update all the classes to impplement the new method in soigner()
+
+        for (Item i : inventory){
+            if (i.getName().equals(item.getName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean  addItem(Item newItem){
+        int totalWeight = 0;
+        for (Item item : inventory) {
+            totalWeight = item.getWeight();
+        }
+        totalWeight += newItem.getWeight();
+        if(totalWeight > maxWeight) {return false ;}
+
+        inventory.add(newItem);
+        return true;
+    }
+    public void sell(Item item){
+        if (inventory.contains(item)){
+            inventory.remove(item);
+            addMoney(item.getValue());
+        }
+    }
 
 
 }

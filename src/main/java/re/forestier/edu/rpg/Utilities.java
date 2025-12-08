@@ -26,7 +26,7 @@ public class Utilities {
         player.currenthealthpoints = Math.min(player.currenthealthpoints, player.healthpoints);
     }
 
-    static String pickRandomObject(String[] objectList){
+    static Item pickRandomObject(Item[] objectList){
         Random random = new Random();
         int randomNumber = random.nextInt(objectList.length);
         return objectList[randomNumber];

@@ -3,9 +3,11 @@ package re.forestier.edu;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.junit.jupiter.api.Test;
 import re.forestier.edu.rpg.Character.CharacterProgression;
+import re.forestier.edu.rpg.Item;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 
@@ -60,18 +62,19 @@ public class UpdateLevelTest {
 
     @Test
     void testDwarfWithPotionHalfHealth(){
-        Player p = new Player("John", "DWARF", "DWARF", 0, new ArrayList<>());
-        p.inventory.add("Holy Elixir");
+        Player p = new Player("John", "DWARF", "DWARF", 0, new ArrayList<Item>());
+        p.inventory.add(new Item("Holy Elixir", "this a Holy Elixir", 1 , 1 ));
         p.healthpoints = 100;
         p.currenthealthpoints = 40;
         UpdatePlayer.majFinDeTour(p);
+        System.out.println(p.inventory.contains(new Item("Holy Elixir", "this a Holy Elixir", 1 , 1 )));
         assertEquals(42, p.currenthealthpoints, "DWARF avec potion devrait +2");
     }
 
     @Test
     void testArcherWithBowHalfHealth(){
         Player p = new Player("John", "ARCHER", "ARCHER", 0, new ArrayList<>());
-        p.inventory.add("Magic Bow");
+        p.inventory.add(new Item("Magic Bow", "this a Magic Bow", 1 , 1 ));
         p.healthpoints = 100;
         p.currenthealthpoints = 40;
         UpdatePlayer.majFinDeTour(p);
@@ -92,7 +95,7 @@ public class UpdateLevelTest {
     void testArcherMagicBowWithVeryLowHP() {
         // Test le calcul (currenthp + 1) / 8 - 1 avec HP très bas
         Player p = new Player("Archer", "Archer", "ARCHER", 0, new ArrayList<>());
-        p.inventory.add("Magic Bow");
+        p.inventory.add(new Item("Magic Bow", "this a Magic Bow", 1 , 1 ));
         p.healthpoints = 100;
         p.currenthealthpoints = 8; // Cas limite : 8/8 = 1
 
@@ -104,7 +107,7 @@ public class UpdateLevelTest {
     @Test
     void testArcherMagicBowWithHP1() {
         Player p = new Player("Archer", "Archer", "ARCHER", 0, new ArrayList<>());
-        p.inventory.add("Magic Bow");
+        p.inventory.add(new Item("Magic Bow", "this a Magic Bow", 1 , 1 ));
         p.healthpoints = 100;
         p.currenthealthpoints = 1; // Cas extrême
 
