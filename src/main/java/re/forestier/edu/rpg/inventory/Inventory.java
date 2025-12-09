@@ -18,7 +18,7 @@ public class Inventory extends ArrayList<Item> {
     public boolean addItem(Item item) {
         int totalWeight = this.stream().mapToInt(Item::getWeight).sum();
         if (totalWeight + item.getWeight() > maxWeight) return false;
-        return this.add(item); // ArrayList add()
+        return super.add(item); // ArrayList add()
     }
 
     public boolean hasItem(Item item) {
