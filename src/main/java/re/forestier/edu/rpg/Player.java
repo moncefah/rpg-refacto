@@ -69,6 +69,10 @@ public class Player {
     public int getXp() {
         return xp;
     }
+    
+    public int getMoney() {
+        return money;
+    }
 
     public void setXp(int xp) {
         this.xp = xp;
