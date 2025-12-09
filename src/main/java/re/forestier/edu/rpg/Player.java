@@ -2,6 +2,7 @@ package re.forestier.edu.rpg;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Player {
     public String playerName;
@@ -20,6 +21,7 @@ public class Player {
 
     public HashMap<String, Integer> abilities;
     public ArrayList<Item> inventory;
+    private static final Map<Integer, Integer> LEVEL_XP = null;
     public int maxWeight = 20;
     public Player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<Item> inventory) {
         if (!avatarClass.equals("ARCHER") && !avatarClass.equals("ADVENTURER") && !avatarClass.equals("DWARF")&& !avatarClass.equals("GOBLIN"))  {
@@ -103,6 +105,8 @@ public class Player {
             addMoney(item.getValue());
         }
     }
+
+
 
 
 }
