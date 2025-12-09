@@ -2,6 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 import re.forestier.edu.rpg.Character.AbilitySet;
 import re.forestier.edu.rpg.Character.CharacterClass;
 import re.forestier.edu.rpg.Character.CharacterProgression;
+import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Items.Item;
 import re.forestier.edu.rpg.Player;
 
@@ -11,38 +12,37 @@ public class Archer extends CharacterClass {
     }
 
     @Override
-    public CharacterProgression getProgression(){
+    public CharacterProgression getProgression() {
 
-        CharacterProgression archerMap = new  CharacterProgression();
-        AbilitySet archerLevel1 = new AbilitySet();
-        archerLevel1.put("INT", 1);
-        archerLevel1.put("ATK", 3);
-        archerLevel1.put("CHA", 1);
-        archerLevel1.put("VIS", 3);
-        archerMap.put(1, archerLevel1);
+        CharacterProgression archerMap = new CharacterProgression();
 
-        AbilitySet archerLevel2 = new AbilitySet();
-        archerLevel2.put("DEF", 1);
-        archerLevel2.put("CHA", 2);
-        archerMap.put(2, archerLevel2);
+        archerMap.put(1, AbilitySet.of(
+                Stats.INT, 1,
+                Stats.ATK, 3,
+                Stats.CHA, 1,
+                Stats.VIS, 3
+        ));
 
-        AbilitySet archerLevel3 = new AbilitySet();
-        archerLevel3.put("ATK", 3);
-        archerMap.put(3, archerLevel3);
+        archerMap.put(2, AbilitySet.of(
+                Stats.DEF, 1,
+                Stats.CHA, 2
+        ));
 
-        AbilitySet archerLevel4 = new AbilitySet();
-        archerLevel4.put("DEF", 2);
-        archerMap.put(4, archerLevel4);
+        archerMap.put(3, AbilitySet.of(
+                Stats.ATK, 3
+        ));
 
-        AbilitySet archerLevel5 = new AbilitySet();
-        archerLevel5.put("ATK", 4);
-        archerMap.put(5, archerLevel5);
+        archerMap.put(4, AbilitySet.of(
+                Stats.DEF, 2
+        ));
 
+        archerMap.put(5, AbilitySet.of(
+                Stats.ATK, 4
+        ));
 
         return archerMap;
+    }
 
-
-    };
     @Override
     public void soigner(Player player){
         player.currenthealthpoints+=1;

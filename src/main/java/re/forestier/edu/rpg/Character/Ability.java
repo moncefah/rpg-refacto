@@ -1,17 +1,19 @@
 package re.forestier.edu.rpg.Character;
 
 public class Ability {
-    private final String stat;  // "INT", "DEF", "ATK"...
-    private final int value;    // 1, 2, 3...
+    private final Stats stat;
+    private final int value;
 
-    public Ability(String stat, int value) {
+    public Ability(Stats stat, int value) {
         this.stat = stat;
         this.value = value;
     }
 
-    public String getStat() {
+    public Stats getStat() {
         return stat;
     }
 
-    public int getValue() { return value; }
+    public int getValue() {
+        return value;
+    }
 }

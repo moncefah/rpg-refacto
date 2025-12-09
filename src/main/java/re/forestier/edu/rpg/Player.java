@@ -1,4 +1,5 @@
 package re.forestier.edu.rpg;
+import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Items.Item;
 import re.forestier.edu.rpg.inventory.Inventory;
 import re.forestier.edu.rpg.progression.LevelSystem;
@@ -19,7 +20,7 @@ public class Player {
     public int healthpoints;
     public int currenthealthpoints;
 
-    public HashMap<String, Integer> abilities;
+    public HashMap<Stats, Integer> abilities;
     public Inventory inventory;
 
     private static final LevelSystem LEVEL_SYSTEM = new LevelSystem(100);

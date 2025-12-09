@@ -2,6 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 import re.forestier.edu.rpg.Character.AbilitySet;
 import re.forestier.edu.rpg.Character.CharacterClass;
 import re.forestier.edu.rpg.Character.CharacterProgression;
+import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Items.Item;
 import re.forestier.edu.rpg.Player;
 
@@ -11,37 +12,36 @@ public class Dwarf extends CharacterClass {
     }
 
     @Override
-    public  CharacterProgression getProgression(){
+    public CharacterProgression getProgression() {
 
         CharacterProgression dwarfMap = new CharacterProgression();
 
-        AbilitySet dwarfLevel1 = new AbilitySet();
-        dwarfLevel1.put("ALC", 4);
-        dwarfLevel1.put("INT", 1);
-        dwarfLevel1.put("ATK", 3);
-        dwarfMap.put(1, dwarfLevel1);
+        dwarfMap.put(1, AbilitySet.of(
+                Stats.ALC, 4,
+                Stats.INT, 1,
+                Stats.ATK, 3
+        ));
 
-        AbilitySet dwarfLevel2 = new AbilitySet();
-        dwarfLevel2.put("DEF", 1);
-        dwarfLevel2.put("ALC", 5);
-        dwarfMap.put(2, dwarfLevel2);
+        dwarfMap.put(2, AbilitySet.of(
+                Stats.DEF, 1,
+                Stats.ALC, 5
+        ));
 
-        AbilitySet dwarfLevel3 = new AbilitySet();
-        dwarfLevel3.put("ATK", 4);
-        dwarfMap.put(3, dwarfLevel3);
+        dwarfMap.put(3, AbilitySet.of(
+                Stats.ATK, 4
+        ));
 
-        AbilitySet dwarfLevel4 = new AbilitySet();
-        dwarfLevel4.put("DEF", 2);
-        dwarfMap.put(4, dwarfLevel4);
+        dwarfMap.put(4, AbilitySet.of(
+                Stats.DEF, 2
+        ));
 
-        AbilitySet dwarfLevel5 = new AbilitySet();
-        dwarfLevel5.put("CHA", 1);
-        dwarfMap.put(5, dwarfLevel5);
+        dwarfMap.put(5, AbilitySet.of(
+                Stats.CHA, 1
+        ));
 
         return dwarfMap;
-
-
-    };
+    }
+    
     @Override
     public void soigner(Player player) {
 
