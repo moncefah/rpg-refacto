@@ -1,10 +1,10 @@
 package re.forestier.edu.rpg;
 
 import org.junit.jupiter.api.Test;
+import re.forestier.edu.rpg.Items.Item;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class PlayerTest {
      @Test
@@ -18,9 +18,10 @@ public class PlayerTest {
     @Test
     void testInvalidConstructor() {
         var inv = new ArrayList<Item>();
-        Player p = new Player("Jane", "Avatar2", "MAGE", 50, inv);
-        // Ici, le constructeur "return" sans set → AvatarClass reste null
-        assertNull(p.getAvatarClass());
+        Player p ;
+
+        assertThrows(IllegalArgumentException.class, () ->  new Player("Jane", "Avatar2", "MAGE", 50, inv));
+
     }
 
     @Test

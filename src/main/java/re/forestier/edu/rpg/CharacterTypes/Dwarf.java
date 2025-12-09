@@ -2,7 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 import re.forestier.edu.rpg.Character.AbilitySet;
 import re.forestier.edu.rpg.Character.CharacterClass;
 import re.forestier.edu.rpg.Character.CharacterProgression;
-import re.forestier.edu.rpg.Item;
+import re.forestier.edu.rpg.Items.Item;
 import re.forestier.edu.rpg.Player;
 
 public class Dwarf extends CharacterClass {
@@ -46,7 +46,7 @@ public class Dwarf extends CharacterClass {
     public void soigner(Player player) {
 
 
-        if(player.hasItem(new Item("Holy Elixir", "this a Holy Elixir", 1 , 1 ))) {
+        if(player.inventory.hasItem(new Item("Holy Elixir", "this a Holy Elixir", 1 , 1 ))) {
 
             player.currenthealthpoints += 1;
         }

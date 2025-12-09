@@ -3,6 +3,7 @@ package re.forestier.edu.rpg;
 import re.forestier.edu.rpg.Character.CharacterClass;
 import re.forestier.edu.rpg.Character.CharacterFactory;
 import re.forestier.edu.rpg.Character.CharacterProgression;
+import re.forestier.edu.rpg.Items.Item;
 
 import java.util.HashMap;
 
@@ -31,7 +32,7 @@ public class UpdatePlayer {
         int newLevel = player.retrieveLevel();
 
         if (newLevel != currentLevel) {
-            player.inventory.add(Utilities.pickRandomObject(objectList));
+            player.inventory.addItem(Utilities.pickRandomObject(objectList));
             // Add/upgrade abilities to player
             updatePlayerAbilities(player, newLevel);
             return true;

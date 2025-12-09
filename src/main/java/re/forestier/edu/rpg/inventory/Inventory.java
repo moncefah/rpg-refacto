@@ -1,0 +1,26 @@
+package re.forestier.edu.rpg.inventory;
+
+import re.forestier.edu.rpg.Items.Item;
+
+import java.util.ArrayList;
+
+public class Inventory extends ArrayList<Item> {
+
+    private int maxWeight = 20;
+
+    public Inventory() {}
+
+    public Inventory(int maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+
+    public boolean addItem(Item item) {
+        int totalWeight = this.stream().mapToInt(Item::getWeight).sum();
+        if (totalWeight + item.getWeight() > maxWeight) return false;
+        return this.add(item); // ArrayList add()
+    }
+
+    public boolean hasItem(Item item) {
+        return this.stream().anyMatch(i -> i.getName().equals(item.getName()));
+    }
+}

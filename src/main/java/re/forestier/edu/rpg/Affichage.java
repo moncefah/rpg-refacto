@@ -1,5 +1,7 @@
 package re.forestier.edu.rpg;
 
+import re.forestier.edu.rpg.Items.Item;
+
 public class Affichage {
 
     public static String afficherJoueur(Player player) {
@@ -9,10 +11,10 @@ public class Affichage {
         player.abilities.forEach((name, level) -> {
             finalString[0] += "\n   " + name + " : " + level;
         });
-        finalString[0] += "\n\nInventaire :";
-        player.inventory.forEach(item -> {
-            finalString[0] += "\n   " + item;
-        });
+
+        for (Item item :player.inventory ){
+            finalString[0] += "\n   " + item.getName();
+        }
 
         return finalString[0];
     }

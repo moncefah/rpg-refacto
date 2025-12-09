@@ -3,11 +3,10 @@ package re.forestier.edu;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.junit.jupiter.api.Test;
 import re.forestier.edu.rpg.Character.CharacterProgression;
-import re.forestier.edu.rpg.Item;
+import re.forestier.edu.rpg.Items.Item;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 
