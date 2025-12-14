@@ -1,4 +1,4 @@
-package re.forestier.edu.rpg.inventory;
+package re.forestier.edu.rpg.Inventory;
 
 import re.forestier.edu.rpg.Player;
 import re.forestier.edu.rpg.Items.Item;

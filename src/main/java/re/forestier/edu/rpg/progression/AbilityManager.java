@@ -4,8 +4,6 @@ import re.forestier.edu.rpg.Player;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Character.AbilitySet;
 
-import java.util.HashMap;
-
 public class AbilityManager {
 
     public static void updatePlayerAbilities(Player player, int newLevel) {

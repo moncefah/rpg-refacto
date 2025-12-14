@@ -1,7 +1,7 @@
 package re.forestier.edu.rpg;
 import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Items.Item;
-import re.forestier.edu.rpg.inventory.Inventory;
+import re.forestier.edu.rpg.Inventory.Inventory;
 import re.forestier.edu.rpg.progression.LevelSystem;
 
 import java.util.ArrayList;
