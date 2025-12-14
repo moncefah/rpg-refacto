@@ -1,4 +1,4 @@
-package re.forestier.edu;
+package re.forestier.edu.rpg;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
@@ -8,10 +8,15 @@ import org.junit.jupiter.api.Test;
 import re.forestier.edu.rpg.Character.CharacterProgression;
 import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Items.Item;
-import re.forestier.edu.rpg.UpdatePlayer;
-import re.forestier.edu.rpg.Player;
+
 
 public class UpdateLevelTest {
+
+   @Test
+   void constructor_throwsBecauseUtilityClass() {
+        IllegalStateException ex = assertThrows(IllegalStateException.class, UpdatePlayer::new);
+        assertEquals("Utility class", ex.getMessage());
+    }
 
     // -------------------------------
     // TESTS POUR addXp()

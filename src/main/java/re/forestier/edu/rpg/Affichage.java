@@ -3,6 +3,10 @@ package re.forestier.edu.rpg;
 import re.forestier.edu.rpg.Items.Item;
 public class Affichage {
 
+    Affichage() {
+        throw new IllegalStateException("Utility class");
+     }
+
     public static String afficherJoueur(Player player) {
         StringBuilder sb = new StringBuilder();
 

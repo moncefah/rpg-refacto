@@ -31,7 +31,30 @@ public class Item {
     }
 
     @Override
-    public String toString() {
-        return name + " (" + description + ", " + weight + "kg, " + value + "$)";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+        Item item = (Item) o;
+        return name.equals(item.name);
     }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
+    public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(name)
+      .append(" (")
+      .append(description)
+      .append(", ")
+      .append(weight)
+      .append("kg, ")
+      .append(value)
+      .append("$)");
+    return sb.toString();
+  }
+
 }

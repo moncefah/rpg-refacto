@@ -1,4 +1,4 @@
-package re.forestier.edu.rpg.progression;
+package re.forestier.edu.rpg.Progression;
 
 import java.util.Collections;
 import java.util.HashMap;
