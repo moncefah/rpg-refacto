@@ -67,12 +67,13 @@ public class UpdatePlayer {
 
 
 
-    private static void updatePlayerAbilities(Player player, int newLevel ){
-        HashMap<String, Integer> abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);
-        abilities.forEach((ability, level) -> {
-            player.abilities.put(ability, abilities.get(ability));
-        });
+    private static void updatePlayerAbilities(Player player, int newLevel) {
+    var abilities = abilitiesPerTypeAndLevel()
+            .get(player.getAvatarClass())
+            .get(newLevel); // type: Map<Stats, Integer>
 
+        abilities.forEach((Stats, value) -> player.abilities.put(Stats, value));
     }
+
 
 }

@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 import re.forestier.edu.rpg.Character.CharacterProgression;
+import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Items.Item;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
@@ -23,7 +24,7 @@ public class UpdateLevelTest {
         assertTrue(leveledUp, "Le joueur a level up");
         assertEquals(3, p.retrieveLevel(), "Le joueur devrait être niveau 3");
 
-        HashMap<String , Integer> expectedAbilities =
+        HashMap<Stats , Integer> expectedAbilities =
                 UpdatePlayer.abilitiesPerTypeAndLevel().get("ARCHER").get(3);
         expectedAbilities.forEach((ability, value) ->
                 assertEquals(value, p.abilities.get(ability),

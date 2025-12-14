@@ -16,5 +16,8 @@ public class Main {
         System.out.println("------------------");
         UpdatePlayer.addXp(firstPlayer, 20);
         System.out.println(Affichage.afficherJoueur(firstPlayer));
+
+        System.out.println("------------------");
+        System.out.println(Affichage.afficherJoueurMarkdown(firstPlayer));
     }
 }

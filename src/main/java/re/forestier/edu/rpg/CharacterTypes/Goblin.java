@@ -2,6 +2,7 @@ package re.forestier.edu.rpg.CharacterTypes;
 
 import re.forestier.edu.rpg.Character.AbilitySet;
 import re.forestier.edu.rpg.Character.CharacterProgression;
+import re.forestier.edu.rpg.Character.Stats;
 import re.forestier.edu.rpg.Character.CharacterClass;
 import re.forestier.edu.rpg.Player;
 
@@ -12,36 +13,32 @@ public class Goblin extends CharacterClass {
 
     @Override
     public CharacterProgression getProgression() {
+
         CharacterProgression goblinMap = new CharacterProgression();
 
-        // Niveau 1 : INT=2, ATK=2, ALC=1
-        AbilitySet lvl1 = new AbilitySet();
-        lvl1.put("INT", 2);
-        lvl1.put("ATK", 2);
-        lvl1.put("ALC", 1);
-        goblinMap.put(1, lvl1);
+        goblinMap.put(1, AbilitySet.of(
+                Stats.INT, 2,
+                Stats.ATK, 2,
+                Stats.ALC, 1
+        ));
 
-        // Niveau 2 : ATF=3 (Typo du sujet, on assume ATK), ALC=4
-        AbilitySet lvl2 = new AbilitySet();
-        lvl2.put("ATK", 3);
-        lvl2.put("ALC", 4);
-        goblinMap.put(2, lvl2);
+        goblinMap.put(2, AbilitySet.of(
+                Stats.ATK, 3,   // ATF → ATK (corrected)
+                Stats.ALC, 4
+        ));
 
-        // Niveau 3 : VIS=1
-        AbilitySet lvl3 = new AbilitySet();
-        lvl3.put("VIS", 1);
-        goblinMap.put(3, lvl3);
+        goblinMap.put(3, AbilitySet.of(
+                Stats.VIS, 1
+        ));
 
-        // Niveau 4 : DEF=1
-        AbilitySet lvl4 = new AbilitySet();
-        lvl4.put("DEF", 1);
-        goblinMap.put(4, lvl4);
+        goblinMap.put(4, AbilitySet.of(
+                Stats.DEF, 1
+        ));
 
-        // Niveau 5 : DEF=2, ATK=3
-        AbilitySet lvl5 = new AbilitySet();
-        lvl5.put("DEF", 2);
-        lvl5.put("ATK", 3);
-        goblinMap.put(5, lvl5);
+        goblinMap.put(5, AbilitySet.of(
+                Stats.DEF, 2,
+                Stats.ATK, 3
+        ));
 
         return goblinMap;
     }
