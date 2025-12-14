@@ -7,6 +7,11 @@ import re.forestier.edu.rpg.Inventory.Inventory;
 import java.util.ArrayList;
 
 public class Main {
+
+     Main() {
+        throw new IllegalStateException("Main class");
+     }
+
     public static void main(String[] args) {
         Player firstPlayer = new Player("Florian", "Ruzberg de Rivehaute", "DWARF", 200, new Inventory(1));
         firstPlayer.addMoney(400);

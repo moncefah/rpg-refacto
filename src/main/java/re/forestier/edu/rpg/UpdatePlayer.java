@@ -17,6 +17,10 @@ public class UpdatePlayer {
 
  };
 
+     UpdatePlayer() {
+        throw new IllegalStateException("Utility class");
+     }
+
     public static HashMap<String, CharacterProgression> abilitiesPerTypeAndLevel() {
         HashMap<String, CharacterProgression> map = new HashMap<>();
         map.put("ARCHER", CharacterFactory.create("ARCHER").getProgression());

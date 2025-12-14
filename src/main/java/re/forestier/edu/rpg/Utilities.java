@@ -7,6 +7,9 @@ import java.util.Random;
 
 public class Utilities {
 
+     Utilities() {
+        throw new IllegalStateException("Utility class");
+     }
 
     static void restorerViePlayer(Player player) {
         player.currenthealthpoints = Math.min(player.currenthealthpoints, player.healthpoints);
@@ -17,20 +20,6 @@ public class Utilities {
         int randomNumber = random.nextInt(objectList.length);
         return objectList[randomNumber];
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
